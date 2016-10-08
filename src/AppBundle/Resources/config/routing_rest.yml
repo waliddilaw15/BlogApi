@@ -1,0 +1,3 @@
+articles_api:
+    resource:   "AppBundle\Controller\ArticleController"
+    type:       rest

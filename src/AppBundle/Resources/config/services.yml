@@ -1,0 +1,8 @@
+services:
+#    article_manager:
+#        class:      AppBundle\Manager\ArticleManager
+#        arguments:  ['@doctrine.orm.entity_manager']
+
+    article_manager:
+        class:      AppBundle\Manager\ArticleManager
+        autowire:   true
