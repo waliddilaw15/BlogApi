@@ -4,7 +4,6 @@ namespace AppBundle\Controller;
 
 use AppBundle\Manager\ArticleManager;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use FOS\RestBundle\Controller\Annotations\RouteResource;
 use Symfony\Component\HttpFoundation\Response;
@@ -59,7 +58,7 @@ class ArticleController extends Controller
         $article = $articleManager->loadArticle($id);
 
         if($article === null){
-            return new JsonResponse(null, Response::HTTP_NOT_FOUND);
+            return new Response(null, Response::HTTP_NOT_FOUND);
         }
 
         return array('article' => $article);
@@ -116,12 +115,12 @@ class ArticleController extends Controller
         $article = $articleManager->loadArticle($id);
 
         if($article === null){
-            return new JsonResponse(null, Response::HTTP_NOT_FOUND);
+            return new Response(null, Response::HTTP_NOT_FOUND);
         }
 
         $articleManager->updateArticle($article, $request->request->all());
 
-        return new JsonResponse(null, Response::HTTP_NO_CONTENT);
+        return new Response(null, Response::HTTP_NO_CONTENT);
     }
 
     /**
@@ -147,11 +146,11 @@ class ArticleController extends Controller
         $article = $articleManager->loadArticle($id);
 
         if($article === null){
-            return new JsonResponse(null, Response::HTTP_NOT_FOUND);
+            return new Response(null, Response::HTTP_NOT_FOUND);
         }
 
         $articleManager->deleteArticle($article);
 
-        return new JsonResponse(null, Response::HTTP_NO_CONTENT);
+        return new Response(null, Response::HTTP_NO_CONTENT);
     }
 }
