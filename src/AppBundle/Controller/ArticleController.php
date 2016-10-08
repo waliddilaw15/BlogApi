@@ -32,7 +32,7 @@ class ArticleController extends Controller
 
         $articles = $articleManager->loadArticles();
 
-        return array('articles' => $articles);
+        return $articles;
     }
 
     /**
@@ -61,7 +61,7 @@ class ArticleController extends Controller
             return new Response(null, Response::HTTP_NOT_FOUND);
         }
 
-        return array('article' => $article);
+        return $article;
     }
 
     /**
@@ -86,7 +86,7 @@ class ArticleController extends Controller
 
         $article = $articleManager->createArticle($request->request->all());
 
-        return array('article' => $article);
+        return $article;
     }
 
     /**
